@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clicker Game</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <section>
+        <div class="main">
+            <div class="left">
+                <h3>Сердец: <span class="heart-cost">0</span></h3>
+                <img src="./assets/heart.png" alt="" srcset="" width="600" class="heart-image" onclick="incrementHeart()" draggable="false">
+            </div>
+            <div class="right">
+                <div class="update" onclick="buyClick()">
+                        <div class="left-section">
+                            <img src="./assets/click.png" alt="" class="src" width="80">
+                        </div>
+                        <div class="middle-section">
+                            <h4>Улучшить клик</h4>
+                            <div class="cost-info">
+                                <p>Цена: <span class="clicker-cost">10</span></p>
+                                <img src="./assets/heart.png" alt="" class="src" width="30" height="30">
+                            </div>
+                        </div>
+                        <div class="right-section">
+                            Уровень 0
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script src="index.js"></script>
+</body>
+</html>
