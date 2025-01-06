@@ -37,12 +37,13 @@ body{
     justify-content: space-between;
     padding: 10px 20px;
     border-radius: 5px;
+    position: relative;
 }
 
 .middle-section h4{
     margin: 0;
     margin-bottom: 20px;
-    font-size: 25px;
+    font-size: 24px;
 }
 .middle-section p{
     margin: 0;
@@ -53,4 +54,21 @@ body{
     display: flex;
     gap: 5px;
     align-items: center;
+    display:inline-flex;
+}
+
+.right-section{
+    font-size: 24px;
+}
+
+.next-level-info{
+    position: absolute;
+    right: -160px;
+    background-color: aqua;
+    text-align: center;
+    display: none;
+}
+
+.update:hover .next-level-info{
+    display: block;
 }
