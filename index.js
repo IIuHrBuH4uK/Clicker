@@ -26,6 +26,14 @@ let parsedCakeLevel = parseFloat(cakeLevel.innerHTML); // Преобразуем
 let cakeIncrease = document.querySelector('.cake-increase'); // Увеличение от улучшения
 let parsedCakeIncrease = parseFloat(cakeIncrease.innerHTML); // Преобразуем увеличение в число
 
+// Получаем элементы, связанные с улучшением "Pizza"
+let pizzaCost = document.querySelector('.pizza-cost'); // Стоимость улучшения
+let parsedPizzaCost = parseFloat(pizzaCost.innerHTML); // Преобразуем стоимость в число
+let pizzaLevel = document.querySelector('.pizza-level'); // Уровень улучшения
+let parsedPizzaLevel = parseFloat(pizzaLevel.innerHTML); // Преобразуем уровень в число
+let pizzaIncrease = document.querySelector('.pizza-increase'); // Увеличение от улучшения
+let parsedPizzaIncrease = parseFloat(pizzaIncrease.innerHTML); // Преобразуем увеличение в число
+
 // Получаем текстовые элементы для отображения текущих значений HPC (Hearts per Click) и HPS (Hearts per Second)
 let hpcText = document.getElementById('hpc-text');
 let hpsText = document.getElementById('hps-text');
@@ -95,6 +103,23 @@ function buyCake() {
         hps += parsedCakeIncrease; // Увеличиваем HPS
         parsedCakeCost *= 1.18; // Увеличиваем стоимость следующей покупки
         cakeCost.innerHTML = Math.round(parsedCakeCost);
+    }
+}
+
+// Функция для покупки улучшения "Pizza"
+function buyPizza() {
+    if (parsedHeart >= parsedPizzaCost) { // Проверяем, хватает ли "сердец" для покупки
+        parsedHeart -= parsedPizzaCost; // Вычитаем стоимость
+        updateHeartDisplay();
+
+        pizzaLevel.innerHTML = ++parsedPizzaLevel; // Увеличиваем уровень улучшения
+
+        parsedPizzaIncrease = parseFloat((parsedPizzaIncrease * 1.03).toFixed(2)); // Увеличиваем эффект улучшения
+        pizzaIncrease.innerHTML = parsedPizzaIncrease;
+
+        hps += parsedPizzaIncrease; // Увеличиваем HPS
+        parsedPizzaCost *= 1.18; // Увеличиваем стоимость следующей покупки
+        pizzaCost.innerHTML = Math.round(parsedPizzaCost);
     }
 }
 
