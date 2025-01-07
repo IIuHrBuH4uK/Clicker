@@ -10,31 +10,81 @@
     <section>
         <div class="main">
             <div class="left">
-                <h3>Сердец: <span class="heart-cost">0</span></h3>
+                <h3>Сердец: <span class="heart-cost">5000</span></h3>
                 <img src="./assets/heart.png" alt="" srcset="" width="600" class="heart-image" onclick="incrementHeart()" draggable="false">
             </div>
             <div class="right">
+
                 <div class="update" onclick="buyClick()">
                         <div class="left-section">
                             <img src="./assets/click.png" alt="" class="src" width="80">
                         </div>
                         <div class="middle-section">
-                            <h4>Автоматический клик</h4>
+                            <h4>Улучшенный клик</h4>
                             <div class="cost-info">
                                 <p>Цена: <span class="clicker-cost">10 </span></p>
                                 <img src="./assets/heart.png" alt="" class="src" width="30" height="30">
                             </div>
                         </div>
-                        <div class="right-section">Уровень 0</div>
+                        <div class="right-section">Уровень <span class="clicker-level">0</span></div>
 
                         <div class="next-level-info">
                             <p>
-                                +<span class="cursor-increase">1</span> сердечко <br /> в секунду
+                                +<span class="clicker-increase">1</span> сердечко <br /> за клик
                             </p>
 
                         </div>
                 </div>
+
+                <div class="update" onclick="buyCandy()">
+                    <div class="left-section">
+                   <img src="./assets/candy.png" alt="" class="src" width="80">
+                    </div>
+                    <div class="middle-section">
+                        <h4>Конфетка</h4>
+                        <div class="cost-info">
+                            <p>Цена: <span class="candy-cost">130 </span></p>
+                            <img src="./assets/candy.png" alt="" class="src" width="30" height="30">
+                        </div>
+                    </div>
+                    <div class="right-section">Уровень <span class="candy-level">0</span></div>
+
+                    <div class="next-level-info">
+                        <p>
+                            +<span class="candy-increase">4</span> сердечко <br /> в секунду
+                        </p>
+
+                    </div>
+                </div>
+
+                <div class="update" onclick="buyCake()">
+                    <div class="left-section">
+                   <img src="./assets/cake.png" alt="" class="src" width="80">
+                    </div>
+                    <div class="middle-section">
+                        <h4>Тортик</h4>
+                        <div class="cost-info">
+                            <p>Цена: <span class="cake-cost">500 </span></p>
+                            <img src="./assets/cake.png" alt="" class="src" width="30" height="30">
+                        </div>
+                    </div>
+                    <div class="right-section">Уровень <span class="cake-level">0</span></div>
+
+                    <div class="next-level-info">
+                        <p>
+                            +<span class="cake-increase">10</span> сердечко <br /> в секунду
+                        </p>
+
+                    </div>
+                </div>
             </div>
+        </div>
+        <div class="statistics">
+            <div class="texts">
+                <p>Сердца за клик: <span id="hpc-text">1</span></p>
+                <p>Сердца в секунду: <span id="hps-text">0</span></p>
+            </div>
+
         </div>
     </section>
     <script src="index.js"></script>
