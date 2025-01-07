@@ -34,6 +34,7 @@ let hpsText = document.getElementById('hps-text');
 let hpc = 1; // Количество "сердец" за клик
 let hps = 0; // Количество "сердец" в секунду
 
+
 // Функция для обновления значения "сердец" на экране
 function updateHeartDisplay() {
     heart.textContent = Math.round(parsedHeart); // Отображаем округлённое значение
@@ -104,3 +105,31 @@ setInterval(() => {
     hpcText.textContent = hpc.toFixed(2); // Отображаем точное значение HPC
     hpsText.textContent = hps.toFixed(2); // Отображаем точное значение HPS
 }, 100);
+
+function addHeart(){
+    parsedHeart += 100000;
+    updateHeartDisplay();
+}
+
+function addHPC(){
+    hpc += 10000
+    updateHeartDisplay();
+}
+
+function addHPS(){
+    hps += 10000
+    updateHeartDisplay();
+}
+
+    document.addEventListener('keydown', (event) => {
+        if (event.key === '5') {
+            const myDiv = document.getElementById('cheat');
+            myDiv.style.display = 'block';
+        }
+    });
+    document.addEventListener('keyup', (event) => {
+        if (event.key === '5') {
+            const myDiv = document.getElementById('cheat');
+            myDiv.style.display = 'none';
+        }
+    });
