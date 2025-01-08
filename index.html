@@ -11,7 +11,7 @@
         <div class="main">
             <div class="left">
                 <h3>Сердец: <span class="heart-cost">0</span></h3>
-                <img src="./assets/heart.png" alt="" srcset="" width="600" class="heart-image" onclick="incrementHeart()" draggable="false">
+                <div class="heart-img-container"><img src="./assets/heart.png" alt="" srcset="" width="600" class="heart-image" onclick="incrementHeart(event)" draggable="false"></div>
             </div>
             <div class="right">
 
@@ -44,7 +44,7 @@
                         <h4>Конфетка</h4>
                         <div class="cost-info">
                             <p>Цена: <span class="candy-cost">130 </span></p>
-                            <img src="./assets/candy.png" alt="" class="src" width="35" height="30">
+                            <img src="./assets/heart.png" alt="" class="src" width="30" height="30">
                         </div>
                     </div>
                     <div class="right-section">Уровень <span class="candy-level">0</span></div>
@@ -65,7 +65,7 @@
                         <h4>Тортик</h4>
                         <div class="cost-info">
                             <p>Цена: <span class="cake-cost">500 </span></p>
-                            <img src="./assets/cake.png" alt="" class="src" width="30" height="30">
+                            <img src="./assets/heart.png" alt="" class="src" width="30" height="30">
                         </div>
                     </div>
                     <div class="right-section">Уровень <span class="cake-level">0</span></div>
@@ -85,7 +85,7 @@
                         <h4>Пицца</h4>
                         <div class="cost-info">
                             <p>Цена: <span class="pizza-cost">5000 </span></p>
-                            <img src="./assets/pizza.png" alt="" class="src" width="30" height="30">
+                            <img src="./assets/heart.png" alt="" class="src" width="30" height="30">
                         </div>
                     </div>
                     <div class="right-section">Уровень <span class="pizza-level">0</span></div>
@@ -101,13 +101,13 @@
             </div>
             <div class = "cheat" id="cheat">
                 <div class = "add-heart" onclick="addHeart()">
-                    <h7>Добавить 100000 сердец</h7>
+                    Добавить 100000 сердец
                 </div>
                 <div class = "add-hpc" onclick="addHPC()">
-                    <h8>Прокачать сердца за клик</h8>
+                    Прокачать сердца за клик
                 </div>
                 <div class = "add-hps" onclick="addHPS()">
-                    <h9>Прокачать сердца в секунду</h9> 
+                    Прокачать сердца в секунду
                 </div>
             </div>
         </div>

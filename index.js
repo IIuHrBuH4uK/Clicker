@@ -42,6 +42,7 @@ let hpsText = document.getElementById('hps-text');
 let hpc = 1; // Количество "сердец" за клик
 let hps = 0; // Количество "сердец" в секунду
 
+let heartImgContent = document.querySelector('.heart-img-container');
 
 // Функция для обновления значения "сердец" на экране
 function updateHeartDisplay() {
@@ -49,9 +50,25 @@ function updateHeartDisplay() {
 }
 
 // Функция, которая срабатывает при клике и увеличивает количество "сердец" на текущий HPC
-function incrementHeart() {
+function incrementHeart(event) {
     parsedHeart += hpc; // Добавляем значение HPC
     updateHeartDisplay(); // Обновляем экран
+    const x = event.offsetX
+    const y = event.offsetY
+
+    const div = document.createElement('div')
+    div.innerHTML = "+" + Math.round(hpc)
+    div.style.cssText = `color: white; position: absolute; top: ${y}px; left: ${x}px; font-size: 15px; pointer-events: none;`
+    heartImgContent.appendChild(div)
+
+    div.classList.add('fade-up')
+    timeout(div)
+}
+
+const timeout = (div) => {
+    setTimeout(() => {
+div.remove()
+    },800)
 }
 
 // Функция для покупки улучшения "Clicker"
