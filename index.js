@@ -71,10 +71,12 @@ div.remove()
     },800)
 }
 
-const canvas = document.getElementById("heartCanvas");
+    const canvas = document.getElementById("heartCanvas");
     const ctx = canvas.getContext("2d");
     const heartImage = new Image();
     
+    heartImage.crossOrigin = "anonymous"; // Разрешить CORS
+
     heartImage.src = "./assets/heart.png"; // путь к изображению
     heartImage.onload = () => {
       ctx.drawImage(heartImage, 0, 0, canvas.width, canvas.height);
