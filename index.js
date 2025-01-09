@@ -106,6 +106,8 @@ const canvas = document.getElementById("heartCanvas");
         }
     });
 
+    
+
 // Функция для покупки улучшения "Clicker"
 function buyClick() {
     if (parsedHeart >= parsedClickerCost) { // Проверяем, хватает ли "сердец" для покупки
