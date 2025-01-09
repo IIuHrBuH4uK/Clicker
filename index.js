@@ -91,11 +91,7 @@ const canvas = document.getElementById("heartCanvas");
         // Проверяем, непрозрачен ли пиксель
         if (pixel[3] > 0) { // Альфа-канал > 0
             parsedHeart += hpc; // Увеличиваем "сердца" на текущий HPC
-        } else {
-            hpc += 0; // Увеличиваем HPC (можно изменить логику на другую, если нужно)
-        }
-        
-        // Создаём эффект текста
+            // Создаём эффект текста
         const div = document.createElement('div');
         div.innerHTML = "+" + (pixel[3] > 0 ? Math.round(hpc) : 1); // Разное сообщение в зависимости от пикселя
         div.style.cssText = `color: white; position: absolute; top: ${y}px; left: ${x}px; font-size: 15px; pointer-events: none;`;
@@ -105,6 +101,9 @@ const canvas = document.getElementById("heartCanvas");
         timeout(div);
     
         updateHeartDisplay(); // Обновляем отображение количества "сердец"
+        } else {
+            hpc += 0; // Не увеличиваем HPC
+        }
     });
 
 // Функция для покупки улучшения "Clicker"
