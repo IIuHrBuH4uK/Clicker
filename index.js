@@ -50,65 +50,26 @@ function updateHeartDisplay() {
 }
 
 // Функция, которая срабатывает при клике и увеличивает количество "сердец" на текущий HPC
-// function incrementHeart(event) {
-//     parsedHeart += hpc; // Добавляем значение HPC
-//     updateHeartDisplay(); // Обновляем экран
-//     const x = event.offsetX
-//     const y = event.offsetY
+function incrementHeart(event) {
+    parsedHeart += hpc; // Добавляем значение HPC
+    updateHeartDisplay(); // Обновляем экран
+    const x = event.offsetX
+    const y = event.offsetY
 
-//     const div = document.createElement('div')
-//     div.innerHTML = "+" + Math.round(hpc)
-//     div.style.cssText = `color: white; position: absolute; top: ${y}px; left: ${x}px; font-size: 15px; pointer-events: none;`
-//     heartImgContent.appendChild(div)
+    const div = document.createElement('div')
+    div.innerHTML = "+" + Math.round(hpc)
+    div.style.cssText = `color: white; position: absolute; top: ${y}px; left: ${x}px; font-size: 15px; pointer-events: none;`
+    heartImgContent.appendChild(div)
 
-//     div.classList.add('fade-up')
-//     timeout(div)
-// }
+    div.classList.add('fade-up')
+    timeout(div)
+}
 
 const timeout = (div) => {
     setTimeout(() => {
 div.remove()
     },800)
 }
-
-    const canvas = document.getElementById("heartCanvas");
-    const ctx = canvas.getContext("2d");
-    const heartImage = new Image();
-    
-    heartImage.crossOrigin = "anonymous"; // Разрешить CORS
-
-    heartImage.src = "./assets/heart.png"; // путь к изображению
-    heartImage.onload = () => {
-      ctx.drawImage(heartImage, 0, 0, canvas.width, canvas.height);
-    };
-  
-    canvas.addEventListener("click", (event) => {
-        const rect = canvas.getBoundingClientRect();
-        const x = event.clientX - rect.left;
-        const y = event.clientY - rect.top;
-    
-        // Получаем данные пикселя
-        const pixel = ctx.getImageData(x, y, 1, 1).data;
-    
-        // Проверяем, непрозрачен ли пиксель
-        if (pixel[3] > 0) { // Альфа-канал > 0
-            parsedHeart += hpc; // Увеличиваем "сердца" на текущий HPC
-            // Создаём эффект текста
-        const div = document.createElement('div');
-        div.innerHTML = "+" + (pixel[3] > 0 ? Math.round(hpc) : 1); // Разное сообщение в зависимости от пикселя
-        div.style.cssText = `color: white; position: absolute; top: ${y}px; left: ${x}px; font-size: 15px; pointer-events: none;`;
-        heartImgContent.appendChild(div);
-    
-        div.classList.add('fade-up');
-        timeout(div);
-    
-        updateHeartDisplay(); // Обновляем отображение количества "сердец"
-        } else {
-            hpc += 0; // Не увеличиваем HPC
-        }
-    });
-
-    
 
 // Функция для покупки улучшения "Clicker"
 function buyClick() {
@@ -214,6 +175,3 @@ function addHPS(){
             myDiv.style.display = 'none';
         }
     });
-
-
-    
