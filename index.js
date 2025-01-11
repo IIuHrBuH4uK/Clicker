@@ -91,7 +91,7 @@ function buyUpgrade(upgrade){
         heart.innerHTML = Math.round(parsedHeart -= mU.parsedCost);
         
     
-        mU.level.innerHTML ++ // Отображаем новый уровень улучшения
+        mU.level.innerHTML ++
     
         mU.parsedIncrease = parseFloat((mU.parsedIncrease * mU.heartMultiplie).toFixed(2))
         mU.increase.innerHTML = mU.parsedIncrease
@@ -150,3 +150,4 @@ function addHPS(){
     function load () {
         
     }
+
