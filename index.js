@@ -148,10 +148,6 @@ setInterval(() => {
     hpsText.textContent = hps.toFixed(2); // Отображаем точное значение HPS
 }, 100);
 
-function addHeart(){
-    parsedHeart += 100000;
-    updateHeartDisplay();
-}
 
 function addHPC(){
     hpc += 10000
