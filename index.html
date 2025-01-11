@@ -10,12 +10,12 @@
     <section>
         <div class="main">
             <div class="left">
-                <h3>Сердец: <span class="heart-cost">0</span></h3>
-                <div class="heart-img-container"><img src="./assets/heart.png" alt="" srcset="" width="600" class="heart-image" onclick="incrementHeart(event)" draggable="false"></div>
+                <h3>Сердец: <span class="heart-cost">1000000</span></h3>
+                <div class="heart-img-container"><img src="./assets/heart.png" alt="" srcset="" width="600" class="heart-image" onclick="incrementHeart(event)" draggable="false" /></div>
             </div>
             <div class="right">
 
-                <div class="update" onclick="buyClick()">
+                <div class="update" onclick="buyUpgrade(`clicker`)">
                         <div class="left-section">
                             <img src="./assets/click.png" alt="" class="src" width="80">
                         </div>
@@ -36,7 +36,7 @@
                         </div>
                 </div>
 
-                <div class="update" onclick="buyCandy()">
+                <div class="update" onclick="buyUpgrade(`candy`)">
                     <div class="left-section">
                    <img src="./assets/candy.png" alt="" class="src" width="80">
                     </div>
@@ -57,7 +57,7 @@
                     </div>
                 </div>
 
-                <div class="update" onclick="buyCake()">
+                <div class="update" onclick="buyUpgrade(`cake`)">
                     <div class="left-section">
                    <img src="./assets/cake.png" alt="" class="src" width="80">
                     </div>
@@ -77,7 +77,7 @@
 
                     </div>
                 </div>
-                <div class="update" onclick="buyPizza()">
+                <div class="update" onclick="buyUpgrade(`pizza`)">
                     <div class="left-section">
                    <img src="./assets/pizza.png" alt="" class="src" width="80">
                     </div>
