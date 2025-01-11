@@ -10,7 +10,7 @@
     <section>
         <div class="main">
             <div class="left">
-                <h3>Сердец: <span class="heart-cost">1000000</span></h3>
+                <h3>Сердец: <span class="heart-cost">0</span></h3>
                 <div class="heart-img-container"><img src="./assets/heart.png" alt="" srcset="" width="600" class="heart-image" onclick="incrementHeart(event)" draggable="false" /></div>
             </div>
             <div class="right">
@@ -116,7 +116,14 @@
                 <p>Сердец за клик: <span id="hpc-text">1</span></p>
                 <p>Сердец в секунду: <span id="hps-text">0</span></p>
             </div>
-
+        </div>
+        <div class="util-buttons">
+            <button class="util-button">
+                Сохранить
+            </button>
+            <button class="util-button">
+                Загрузить
+            </button>
         </div>
     </section>
     <script src="index.js"></script>

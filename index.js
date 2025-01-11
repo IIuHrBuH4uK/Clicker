@@ -141,3 +141,12 @@ function addHPS(){
             myDiv.style.display = 'none';
         }
     });
+    
+
+    function save () {
+        
+    }
+
+    function load () {
+        
+    }

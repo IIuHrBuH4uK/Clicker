@@ -82,21 +82,18 @@ body{
     display: block;
 }
 
-.statistics {
-    position: fixed;
-    bottom: 100px;
+.statistics{
+    position: absolute;
+    margin-left:250px;
+    width:960px;
     font-size: 30px;
     border: 4px solid #AD009F;
     border-radius: 5px;
     background-color: #C6F500;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 90%; /* Займёт 90% ширины окна */
-    max-width: 500px; /* Ограничение максимальной ширины */
-    padding: 10px 20px; /* Увеличьте внутренние отступы для адаптивности */
+    padding: 10px 20px;
     box-sizing: border-box;
+    max-width: 500px;
 }
-
 
 .text{
     display: flex;
@@ -122,15 +119,6 @@ body{
 
 .add-hpc{
     border-bottom: 3px solid black;
-}
-
-@media (max-width: 600px) {
-    .statistics {
-        width: 95%; /* Уменьшение ширины */
-        font-size: 20px; /* Уменьшение шрифта */
-        bottom: 1800px; /* Регулировка отступа снизу */
-        padding: 5px 10px; /* Уменьшение внутренних отступов */
-    }
 }
 
 .fade-up{
@@ -184,4 +172,14 @@ body{
         transform: translateY(-220px);
         opacity: 0;
     }
+}
+
+.util-buttons{
+position: absolute;
+margin-top: -690px;
+margin-left: 420px;
+}
+
+.util-button{
+cursor: pointer;
 }
