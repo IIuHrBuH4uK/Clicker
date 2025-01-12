@@ -144,9 +144,50 @@ function addHPS(){
     
 
     function save () {
-        
+      // Очищаем предыдущие сохранения
+    localStorage.clear();
+
+    upgrades.map((upgrade) => {
+        // Сохраняем данные улучшения в локальное хранилище
+        const obj = JSON.stringify({
+            parsedLevel: parseFloat(upgrade.level.innerHTML),
+            parsedCost: upgrade.parsedCost,
+            parsedIncrease: upgrade.parsedIncrease,
+        })
+
+        localStorage.setItem(upgrade.name, obj);
+    // Сохраняем основные значения
+    })
+
+    localStorage.setItem('hpc', JSON.stringify(hpc)),
+    localStorage.setItem('hps', JSON.stringify(hps)),
+    localStorage.setItem('parsedHeart', JSON.stringify(parsedHeart))
+    
+    console.log('Игра сохранена');
+    }
+    
+    function load () {
+        upgrades.map((upgrade) => {
+            const savedValues = JSON.parse(localStorage.getItem(upgrade.name));
+
+            upgrade.parsedCost = savedValues.parsedCost;
+            upgrade.level.innerHTML = savedValues.parsedLevel;
+            upgrade.parsedIncrease = savedValues.parsedIncrease;
+            upgrade.cost.innerHTML = Math.round(upgrade.parsedCost);
+            upgrade.increase.innerHTML = upgrade.parsedIncrease;
+        })
+
+        hpc = JSON.parse(localStorage.getItem('hpc'));
+        hps = JSON.parse(localStorage.getItem('hps'));
+        parsedHeart = JSON.parse(localStorage.getItem('parsedHeart'));
+
+        heart.innerHTML = Math.round(parsedHeart)
+
+        console.log('Игра загружена');
     }
 
-    function load () {
-        
-    }
+    setInterval(() => {
+        save(); 
+    }, 300000);
+
+    window.load();
