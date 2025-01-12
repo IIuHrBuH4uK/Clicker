@@ -188,11 +188,18 @@ function addHPS(){
 
     }
 
-    setInterval(() => {
-        save(); 
-    }, 300000);
+    // setInterval(() => {
+    //     save(); 
+    // }, 300000);
 
     window.load();
+
+    window.addEventListener('beforeunload', (event) => {
+        save(); // Вызываем функцию сохранения
+        // Чтобы предотвратить случайное закрытие, можно показать предупреждение (опционально)
+        // event.preventDefault();
+        // event.returnValue = ''; // Некоторые браузеры требуют эту строку для отображения предупреждения
+    });
 
     function win() {
         // Проверяем, достигло ли количество "сердец" 1 000 000
