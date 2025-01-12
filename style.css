@@ -187,3 +187,8 @@ margin-left: 230px;
 .util-button{
 cursor: pointer;
 }
+
+.win{
+    display: none;
+    z-index: 9999;
+}

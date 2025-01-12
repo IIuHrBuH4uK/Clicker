@@ -12,6 +12,8 @@ let hps = 0; // Количество "сердец" в секунду
 
 let heartImgContent = document.querySelector('.heart-img-container');
 
+let hasWon = false;
+
 const upgrades = [
     {
         name: `clicker`,
@@ -58,6 +60,7 @@ const upgrades = [
 // Функция для обновления значения "сердец" на экране
 function updateHeartDisplay() {
     heart.textContent = Math.round(parsedHeart); // Отображаем округлённое значение
+    win();
 }
 
 // Функция, которая срабатывает при клике и увеличивает количество "сердец" на текущий HPC
@@ -167,7 +170,7 @@ function addHPS(){
     
     function load () {
         upgrades.map((upgrade) => {
-            const savedValues = JSON.parse(localStorage.getItem(upgrade.name));
+            const savedValues = JSON.parse(localStorage.getItem(upgrade.name))
 
             upgrade.parsedCost = savedValues.parsedCost;
             upgrade.level.innerHTML = savedValues.parsedLevel;
@@ -190,4 +193,81 @@ function addHPS(){
     }, 300000);
 
     window.load();
+
+    function win() {
+        // Проверяем, достигло ли количество "сердец" 1 000 000
+        if (parsedHeart >= 1000000 && !hasWon) {
+            hasWon = true; // Устанавливаем флаг, чтобы функция больше не вызывалась
+            // Создаём затемняющий фон
+            const overlay = document.createElement('div');
+            overlay.id = 'overlay';
+            overlay.style.cssText = `
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: rgba(0, 0, 0, 0.7);
+                z-index: 9999;
+            `;
+            document.body.appendChild(overlay);
     
+            // Создаём модальное окно
+            const modal = document.createElement('div');
+            modal.id = 'winnerModal';
+            modal.style.cssText = `
+                position: fixed;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                background: black;
+                padding: 20px;
+                border-radius: 10px;
+                text-align: center;
+                z-index: 10000;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            `;
+    
+            // Добавляем текст "Вы выиграли!"
+            const title = document.createElement('h1');
+            title.textContent = 'Вы выиграли!';
+            title.style.cssText = 'margin-bottom: 20px; font-size: 24px; color: white;';
+            modal.appendChild(title);
+    
+            // Добавляем первый GIF
+            const firework1 = document.createElement('img');
+            firework1.src = '/assets/firework1.gif';
+            firework1.alt = 'Firework 1';
+            firework1.style.cssText = 'width: 400px; margin: 10px;';
+            modal.appendChild(firework1);
+    
+            // Добавляем второй GIF
+            const firework2 = document.createElement('img');
+            firework2.src = '/assets/firework2.gif';
+            firework2.alt = 'Firework 2';
+            firework2.style.cssText = 'width: 400px; margin: 10px;';
+            modal.appendChild(firework2);
+    
+            // Кнопка "Закрыть"
+            const closeButton = document.createElement('button');
+            closeButton.textContent = 'Закрыть';
+            closeButton.style.cssText = `
+                display: block;
+                margin: 20px auto 0;
+                padding: 10px 20px;
+                background: #333;
+                color: white;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+            `;
+            closeButton.addEventListener('click', () => {
+                document.body.removeChild(modal);
+                document.body.removeChild(overlay);
+                close();
+            });
+            modal.appendChild(closeButton);
+    
+            document.body.appendChild(modal);
+        }
+    }
