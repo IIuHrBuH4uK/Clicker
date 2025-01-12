@@ -142,7 +142,6 @@ function addHPS(){
         }
     });
     
-
     function save () {
       // Очищаем предыдущие сохранения
     localStorage.clear();
@@ -163,7 +162,7 @@ function addHPS(){
     localStorage.setItem('hps', JSON.stringify(hps)),
     localStorage.setItem('parsedHeart', JSON.stringify(parsedHeart))
     
-    console.log('Игра сохранена');
+    console.log("Игра сохранена");
     }
     
     function load () {
@@ -182,8 +181,8 @@ function addHPS(){
         parsedHeart = JSON.parse(localStorage.getItem('parsedHeart'));
 
         heart.innerHTML = Math.round(parsedHeart)
+        console.log("Игра загружена");
 
-        console.log('Игра загружена');
     }
 
     setInterval(() => {
@@ -191,3 +190,4 @@ function addHPS(){
     }, 300000);
 
     window.load();
+    
