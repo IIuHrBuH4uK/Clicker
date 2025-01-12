@@ -240,14 +240,14 @@ function addHPS(){
     
             // Добавляем первый GIF
             const firework1 = document.createElement('img');
-            firework1.src = '/assets/firework1.gif';
+            firework1.src = 'firework1.gif';
             firework1.alt = 'Firework 1';
             firework1.style.cssText = 'width: 400px; margin: 10px;';
             modal.appendChild(firework1);
     
             // Добавляем второй GIF
             const firework2 = document.createElement('img');
-            firework2.src = '/assets/firework2.gif';
+            firework2.src = 'firework2.gif';
             firework2.alt = 'Firework 2';
             firework2.style.cssText = 'width: 400px; margin: 10px;';
             modal.appendChild(firework2);
