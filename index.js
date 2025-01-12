@@ -196,9 +196,6 @@ function addHPS(){
 
     window.addEventListener('beforeunload', (event) => {
         save(); // Вызываем функцию сохранения
-        // Чтобы предотвратить случайное закрытие, можно показать предупреждение (опционально)
-        // event.preventDefault();
-        // event.returnValue = ''; // Некоторые браузеры требуют эту строку для отображения предупреждения
     });
 
     function win() {
